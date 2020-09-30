@@ -35,7 +35,8 @@ public class AutorRequest {
     public String tratarCpf() {
         return null;
     }
-    public void velidarPais() {
+
+    public void validarPais() {
         if (this.paisOrigem.equals("Brasil") && Objects.isNull(this.cpf)){
             tratarCpf();
             throw new ValidacaoException("O campo CPF é obrigatório.");

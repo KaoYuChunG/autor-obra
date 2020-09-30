@@ -13,19 +13,23 @@ public class ObraPredicate {
         this.builder = new BooleanBuilder();
     }
 
-//    public ObraPredicate comDescricao(String descricao) {
-//        if (!StringUtils.isEmpty(descricao)) {
+    public ObraPredicate(BooleanBuilder builder) {
+        this.builder = builder;
+    }
+
+    public ObraPredicate comDescricao(String descricao) {
+        if (!StringUtils.isEmpty(descricao)) {
 //            builder.and(obra.descricao.likeIgnoreCase("%" + descricao + "%"));
-//        }
-//        return this;
-//    }
-//
-//    public ObraPredicate comNome(String nome) {
-//        if (!StringUtils.isEmpty(nome)) {
+        }
+        return this;
+    }
+
+    public ObraPredicate comNome(String nome) {
+        if (!StringUtils.isEmpty(nome)) {
 //            builder.and(obra.nome.likeIgnoreCase("%" + nome + "%"));
-//        }
-//        return this;
-//    }
+        }
+        return this;
+    }
 
     public BooleanBuilder build() {
         return this.builder;

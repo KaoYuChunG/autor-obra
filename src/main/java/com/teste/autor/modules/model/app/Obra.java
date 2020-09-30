@@ -5,11 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode(of = "id")
-@Table(name = "OBRA")
+@Table(name = "OBRAS")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,8 +18,8 @@ public class Obra {
 
     @Id
     @Column(name = "ID")
-    @SequenceGenerator(name = "SEQ_OBRA", sequenceName = "SEQ_OBRA", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_OBRA")
+    @SequenceGenerator(name = "SEQ_OBRAS", sequenceName = "SEQ_OBRAS", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_OBRAS")
     private Integer id;
 
     @NotNull
@@ -36,9 +37,14 @@ public class Obra {
 
     @NotNull
     @Column(name = "DATA_PUBLICACAO", nullable = false)
-    private String dataPublicacao;
+    private LocalDateTime dataPublicacao;
 
     @NotNull
     @Column(name = "DATA_EXPOSICAO", nullable = false)
-    private String dataExposicao;
+    private LocalDateTime dataExposicao;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_AUTOR", referencedColumnName = "ID",
+            foreignKey = @ForeignKey(name = "FK_AUTOR_OBRA"))
+    private Autor autor;
 }
