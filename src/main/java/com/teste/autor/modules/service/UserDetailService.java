@@ -24,7 +24,7 @@ public class UserDetailService  implements UserDetailsService {
         Usuario usuario = usuarioRepository.findByEmail(userNome);
 
         if(Objects.isNull(userNome)) {
-            throw new UsernameNotFoundException("User or password invalid");
+            throw new UsernameNotFoundException("Usuário ou senha inválido");
         }
 
         return new UserAuth(usuario);

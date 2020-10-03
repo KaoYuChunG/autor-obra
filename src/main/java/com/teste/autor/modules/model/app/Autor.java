@@ -4,11 +4,13 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @EqualsAndHashCode(of = "id")
-@Table(name = "AUTOR")
+@Table(name = "AUTORES")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,8 +18,8 @@ public class Autor {
 
     @Id
     @Column(name = "ID")
-    @SequenceGenerator(name = "SEQ_AUTOR", sequenceName = "SEQ_AUTOR", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_AUTOR")
+    @SequenceGenerator(name = "SEQ_AUTORES", sequenceName = "SEQ_AUTORES", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_AUTORES")
     private Integer id;
 
     @NotNull
@@ -33,7 +35,7 @@ public class Autor {
 
     @NotNull
     @Column(name = "DATA_NASCIMENTO", nullable = false)
-    private String dataNascimento;
+    private LocalDateTime dataNascimento;
 
     @NotNull
     @Column(name = "PAIS_ORIGEM", nullable = false)
@@ -41,4 +43,5 @@ public class Autor {
 
     @Column(name = "CPF")
     private String cpf;
+
 }
