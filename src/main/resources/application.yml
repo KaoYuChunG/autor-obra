@@ -6,11 +6,12 @@ app:
     platform:mysqln
 
 auth:
-   datasource:
-    url=jdbc:mysql://127.0.0.1:3307/auth?createDatabaseIfNotExist=true&autoReconnect=true&serverTimezone=UTC&useSSL=false
+  datasource:
+    url:jdbc:mysql://127.0.0.1:3307/auth?createDatabaseIfNotExist=true&autoReconnect=true&serverTimezone=UTC&useSSL=false
     username:root
     password:root
     platform:mysqln
+
 spring:
   jpa:
     properties:
