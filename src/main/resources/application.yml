@@ -1,25 +1,25 @@
 app:
   datasource:
     url=jdbc:mysql://127.0.0.1:3307/app?createDatabaseIfNotExist=true&autoReconnect=true&serverTimezone=UTC&useSSL=false
-    username=root
-    password=root
-    platform=mysqln
+    username:root
+    password:root
+    platform:mysqln
 
 auth:
    datasource:
     url=jdbc:mysql://127.0.0.1:3307/auth?createDatabaseIfNotExist=true&autoReconnect=true&serverTimezone=UTC&useSSL=false
-    username=root
-    password=root
-    platform=mysqln
+    username:root
+    password:root
+    platform:mysqln
 spring:
   jpa:
     properties:
       hibernate:
-        dialect= org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect:org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto= update
+      ddl-auto: update
 
 petros:
   app:
-    jwtSecret= petrosSecretKey
-    jwtExpirationMs= 0000
+    jwtSecret: petrosSecretKey
+    jwtExpirationMs: 0000
